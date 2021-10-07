@@ -1,6 +1,5 @@
 package ru.kpfu.itis.garipov.servlet;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -30,7 +29,7 @@ public class LoginServlet extends HttpServlet {
             userCookie.setMaxAge(24 * 60 * 60);
             resp.addCookie(userCookie);
 
-            resp.sendRedirect("registration.html");
+            resp.sendRedirect("profile.ftl");
         } else {
             resp.sendRedirect("/login");
         }
