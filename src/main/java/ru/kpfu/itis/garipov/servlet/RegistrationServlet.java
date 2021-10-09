@@ -1,26 +1,24 @@
 package ru.kpfu.itis.garipov.servlet;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet(name = "loginServlet", urlPatterns = "/login")
-public class LoginServlet extends HttpServlet {
-
-
-    public static final String LOGIN = "login";
-    public static final String PASSWORD = "password";
+@WebServlet(name = "registrationServlet", urlPatterns = "/registration")
+public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.sendRedirect("login.html");
+        resp.sendRedirect("registration.html");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        if (LOGIN.equals(login) && PASSWORD.equals(password)) {
+        String confirmedPassword = req.getParameter("confirmedPassword");
+        if (password.equals(confirmedPassword)) {
             HttpSession session = req.getSession();
             session.setAttribute("username", login);
             session.setMaxInactiveInterval(60 * 60);
@@ -31,8 +29,7 @@ public class LoginServlet extends HttpServlet {
 
             resp.sendRedirect("/profile");
         } else {
-            resp.sendRedirect("/login");
+            resp.sendRedirect("/registration");
         }
-
     }
 }
