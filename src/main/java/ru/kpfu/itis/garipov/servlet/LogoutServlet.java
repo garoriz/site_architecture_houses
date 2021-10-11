@@ -1,6 +1,5 @@
 package ru.kpfu.itis.garipov.servlet;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
