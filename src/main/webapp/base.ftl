@@ -1,4 +1,4 @@
-<html lang="ru">
+<html lang="en">
 <head>
     <title><@title></@title></title>
 </head>

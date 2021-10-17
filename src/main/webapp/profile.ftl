@@ -1,4 +1,4 @@
-<html lang="ru">
+<html lang="en">
 <#include "base.ftl">
 <#macro title>Profile</#macro>
 <#macro header>${user.name} ${user.surname}</#macro>
