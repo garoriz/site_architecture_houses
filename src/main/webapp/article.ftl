@@ -1,6 +1,6 @@
 <html lang="en">
 <#include "base.ftl">
-<#macro title>Article</#macro>
+<#macro title>${article.heading}</#macro>
 <#macro header>${article.heading}</#macro>
 
 <#macro content>

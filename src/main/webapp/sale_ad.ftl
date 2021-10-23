@@ -1,7 +1,7 @@
 <#ftl encoding='UTF-8'>
 <html lang="en">
 <#include "base.ftl">
-<#macro title>Sale Ad</#macro>
+<#macro title>${saleAd.heading}</#macro>
 <#macro header>${saleAd.heading}</#macro>
 
 <#macro content>

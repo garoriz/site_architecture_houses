@@ -1,6 +1,7 @@
-package ru.kpfu.itis.garipov.dto;
+package ru.kpfu.itis.garipov.model;
 
-public class UserDTO {
+public class User {
+    private int id;
     private String name;
     private String surname;
     private String status;
@@ -8,13 +9,31 @@ public class UserDTO {
     private String login;
     private String password;
 
-    public UserDTO(String name, String surname, String status, String urlPhoto, String login, String password) {
+    public User(int id, String name, String surname, String status, String urlPhoto, String login, String password) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.status = status;
         this.urlPhoto = urlPhoto;
         this.login = login;
         this.password = password;
+    }
+
+    public User(String name, String surname, String status, String urlPhoto, String login, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.status = status;
+        this.urlPhoto = urlPhoto;
+        this.login = login;
+        this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

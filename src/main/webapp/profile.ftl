@@ -1,10 +1,12 @@
+<#ftl encoding='UTF-8'>
 <html lang="en">
 <#include "base.ftl">
-<#macro title>Profile</#macro>
+<#macro title>Профиль</#macro>
 <#macro header>${user.name} ${user.surname}</#macro>
 
 <#macro content>
-    <img src="https://res.cloudinary.com/dfn48aqa5/image/upload/v1634713767/zmklcvkymmum9iklhape.jpg" alt="фото профиля">
+    <p>Login: ${user.login}</p>
+    <img src=${user.urlPhoto} width="100" height="111">
     <br>
     ${user.status}
 </#macro>

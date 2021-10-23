@@ -22,7 +22,7 @@ public class AuthenticationFilter implements Filter {
         String uri = request.getRequestURI();
         HttpSession session = request.getSession(false);
         if (session == null && !uri.contains("login")) {
-            response.sendRedirect("login.html");
+            response.sendRedirect("/login");
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
         }
