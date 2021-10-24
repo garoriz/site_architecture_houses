@@ -3,7 +3,6 @@ package ru.kpfu.itis.garipov.servlet;
 import ru.kpfu.itis.garipov.model.User;
 import ru.kpfu.itis.garipov.service.impl.UserServiceImpl;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -25,7 +24,9 @@ public class RegistrationServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String confirmedPassword = req.getParameter("confirmedPassword");
-        if (password.equals(confirmedPassword)) {
+        if ((userService.get(login) != null)) {
+            resp.sendRedirect("/registration");
+        } else if (password.equals(confirmedPassword)) {
             userService.save(createUser(name, surname, login, password));
             HttpSession session = req.getSession();
             session.setAttribute("login", login);
@@ -39,7 +40,8 @@ public class RegistrationServlet extends HttpServlet {
 
     private User createUser(String name, String surname, String login, String password) {
         return new User(name, surname, " ",
-                "https://res.cloudinary.com/dfn48aqa5/image/upload/v1634988875/fb_avatar_ipvpno.jpg",
+                "<img src=https://res.cloudinary.com/dfn48aqa5/image/upload/v1634988875/fb_avatar_ipvpno.jpg " +
+                        "width=\"100\" height=\"111\">",
                 login, password);
     }
 }

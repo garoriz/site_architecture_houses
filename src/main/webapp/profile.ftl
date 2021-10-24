@@ -6,7 +6,7 @@
 
 <#macro content>
     <p>Login: ${user.login}</p>
-    <img src=${user.urlPhoto} width="100" height="111">
+    ${user.urlPhoto}
     <br>
     ${user.status}
 </#macro>

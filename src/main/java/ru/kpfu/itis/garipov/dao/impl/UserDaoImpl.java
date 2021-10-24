@@ -62,7 +62,81 @@ public class UserDaoImpl implements Dao<User> {
         }
     }
 
-    @Override
-    public void change(String name, String surname, String login, String urlPhoto, String status, String password) {
+    public void changeName(String login, String name) {
+        String sql = "UPDATE users SET name = ? WHERE login = ?;";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, login);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            LOGGER.warn("Failed to update user.", throwables);
+        }
+    }
+
+    public void changeSurname(String login, String surname) {
+        String sql = "UPDATE users SET surname = ? WHERE login = ?;";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, surname);
+            preparedStatement.setString(2, login);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            LOGGER.warn("Failed to update user.", throwables);
+        }
+    }
+
+    public void changeLogin(String login, String newLogin) {
+        String sql = "UPDATE users SET login = ? WHERE login = ?;";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, newLogin);
+            preparedStatement.setString(2, login);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            LOGGER.warn("Failed to update user.", throwables);
+        }
+    }
+
+    public void changeUrlPhoto(String login, String urlPhoto) {
+        String sql = "UPDATE users SET url_photo = ? WHERE login = ?;";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, urlPhoto);
+            preparedStatement.setString(2, login);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            LOGGER.warn("Failed to update user.", throwables);
+        }
+    }
+
+    public void changeStatus(String login, String status) {
+        String sql = "UPDATE users SET status = ? WHERE login = ?;";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, status);
+            preparedStatement.setString(2, login);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            LOGGER.warn("Failed to update user.", throwables);
+        }
+    }
+
+    public void changePassword(String login, String password) {
+        String sql = "UPDATE users SET password = ? WHERE login = ?;";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, password);
+            preparedStatement.setString(2, login);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            LOGGER.warn("Failed to update user.", throwables);
+        }
     }
 }

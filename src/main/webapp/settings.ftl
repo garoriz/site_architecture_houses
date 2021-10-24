@@ -5,23 +5,20 @@
 <#macro header>Настройки профиля</#macro>
 
 <#macro content>
-    Сменить имя: <input name="name" type="text"/>
-    <br>
-    Сменить фамилию: <input name="surname" type="text"/>
-    <br>
-    Сменить логин: <input name="login" type="text"/>
-    <br>
-    <form action="upload" method="post" enctype="multipart/form-data">
-        Сменить фото профиля:
-        <input type="file" name="file">
+    <form action="/settings" method="post">
+        Сменить имя: <input name="name" type="text"/>
+        <br>
+        Сменить фамилию: <input name="surname" type="text"/>
+        <br>
+        Сменить логин: <input name="login" type="text"/>
+        <br>
+        Сменить статус: <input name="status" type="text"/>
+        <br>
+        Сменить пароль: <input name="password" type="password"/>
+        <br>
+        Подтвердить пароль: <input name="confirmedPassword" type="password"/>
+        <br>
+        <input type="submit" value="Сохранить">
     </form>
-    <br>
-    Сменить статус: <input name="status" type="text"/>
-    <br>
-    Сменить пароль: <input name="password" type="text"/>
-    <br>
-    Подтвердить пароль: <input name="confirmedPassword" type="text"/>
-    <br>
-    <input type="submit" value="Сохранить">
 </#macro>
 </html>

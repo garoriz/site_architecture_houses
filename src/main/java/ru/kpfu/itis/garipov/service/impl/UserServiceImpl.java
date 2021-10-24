@@ -10,7 +10,7 @@ import ru.kpfu.itis.garipov.service.UserService;
 
 public class UserServiceImpl implements UserService {
 
-    private final Dao<User> dao = new UserDaoImpl();
+    private final UserDaoImpl dao = new UserDaoImpl();
 
     @Override
     public UserDTO get(String login) {
@@ -32,5 +32,29 @@ public class UserServiceImpl implements UserService {
                 user.getPassword(),
                 PasswordHelper.encrypt(user.getPassword())
         ));
+    }
+
+    public void changeName(String login, String name) {
+        dao.changeName(login, name);
+    }
+
+    public void changeSurname(String login, String surname) {
+        dao.changeSurname(login, surname);
+    }
+
+    public void changeLogin(String login, String newLogin) {
+        dao.changeLogin(login, newLogin);
+    }
+
+    public void changeUrlPhoto(String login, String urlPhoto) {
+        dao.changeUrlPhoto(login, urlPhoto);
+    }
+
+    public void changeStatus(String login, String status) {
+        dao.changeStatus(login, status);
+    }
+
+    public void changePassword(String login, String password) {
+        dao.changePassword(login, PasswordHelper.encrypt(password));
     }
 }
