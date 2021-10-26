@@ -9,5 +9,13 @@
     ${user.urlPhoto}
     <br>
     ${user.status}
+    <br>
+    <form action="/settings">
+        <button>Настройки профиля</button>
+    </form>
+    <br>
+    <form action="/logout">
+        <button>Выход</button>
+    </form>
 </#macro>
 </html>

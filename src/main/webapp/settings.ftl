@@ -19,6 +19,10 @@
         Подтвердить пароль: <input name="confirmedPassword" type="password"/>
         <br>
         <input type="submit" value="Сохранить">
+        <br>
+    </form>
+    <form action="/profile">
+        <button>Назад</button>
     </form>
 </#macro>
 </html>
