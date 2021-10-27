@@ -1,18 +1,36 @@
-package ru.kpfu.itis.garipov.dto;
+package ru.kpfu.itis.garipov.model;
 
-public class ArticleDTO {
+public class Article {
+    private int id;
     private int userId;
     private String date;
     private String heading;
     private String content;
     private String urlPhoto;
 
-    public ArticleDTO(int userId, String date, String heading, String content, String urlPhoto) {
+    public Article(int id, int userId, String date, String heading, String content, String urlPhoto) {
+        this.id = id;
         this.userId = userId;
         this.date = date;
         this.heading = heading;
         this.content = content;
         this.urlPhoto = urlPhoto;
+    }
+
+    public Article(int userId, String date, String heading, String content, String urlPhoto) {
+        this.userId = userId;
+        this.date = date;
+        this.heading = heading;
+        this.content = content;
+        this.urlPhoto = urlPhoto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getUserId() {

@@ -1,7 +1,6 @@
 package ru.kpfu.itis.garipov.service.impl;
 
 
-import ru.kpfu.itis.garipov.dao.Dao;
 import ru.kpfu.itis.garipov.dao.impl.UserDaoImpl;
 import ru.kpfu.itis.garipov.dto.UserDTO;
 import ru.kpfu.itis.garipov.helper.PasswordHelper;

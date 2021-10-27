@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserDaoImpl implements Dao<User> {
 
@@ -60,6 +61,11 @@ public class UserDaoImpl implements Dao<User> {
         } catch (SQLException throwables) {
             LOGGER.warn("Failed to save new user.", throwables);
         }
+    }
+
+    @Override
+    public List<User> getAll() {
+        return null;
     }
 
     public void changeName(String login, String name) {
