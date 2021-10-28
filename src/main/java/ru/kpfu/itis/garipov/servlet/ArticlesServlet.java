@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 @WebServlet(name = "listArticlesServlet", urlPatterns = "/articles")
-public class ListArticlesServlet extends HttpServlet {
+public class ArticlesServlet extends HttpServlet {
 
     ArticleServiceImpl articleService = new ArticleServiceImpl();
 

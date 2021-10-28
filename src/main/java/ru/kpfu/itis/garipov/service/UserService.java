@@ -6,4 +6,5 @@ import ru.kpfu.itis.garipov.model.User;
 public interface UserService {
     UserDTO get(String login);
     void save(User user);
+    UserDTO get(int id);
 }

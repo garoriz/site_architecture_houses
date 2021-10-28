@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             return null;
         }
-        return new UserDTO(user.getName(), user.getSurname(), user.getStatus(),
+        return new UserDTO(user.getId(), user.getName(), user.getSurname(), user.getStatus(),
                 user.getUrlPhoto(), user.getLogin(), user.getPassword());
     }
 
@@ -31,6 +31,13 @@ public class UserServiceImpl implements UserService {
                 user.getPassword(),
                 PasswordHelper.encrypt(user.getPassword())
         ));
+    }
+
+    @Override
+    public UserDTO get(int id) {
+        User user = dao.get(id);
+        return new UserDTO(user.getId(), user.getName(), user.getSurname(), user.getStatus(),
+                user.getUrlPhoto(), user.getLogin(), user.getPassword());
     }
 
     public void changeName(String login, String name) {

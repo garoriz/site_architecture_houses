@@ -21,6 +21,9 @@
         <input type="submit" value="Сохранить">
         <br>
     </form>
+    <form action="/upload-photo-profile">
+        <button>Сменить фото профиля</button>
+    </form>
     <form action="/profile">
         <button>Назад</button>
     </form>

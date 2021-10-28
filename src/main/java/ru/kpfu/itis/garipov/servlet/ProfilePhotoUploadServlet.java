@@ -14,15 +14,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Random;
 
-@WebServlet(urlPatterns = "/upload")
+@WebServlet(urlPatterns = "/upload-photo-profile")
 @MultipartConfig(
         maxFileSize = 5 * 1024 * 1024,
         maxRequestSize = 10 * 1024 * 1024
 )
-public class FileUploadServlet extends HttpServlet {
+public class ProfilePhotoUploadServlet extends HttpServlet {
     private static final int DIRECTORIES_COUNT = 100;
     private static final String FILE_PATH_PREFIX = "/tmp";
     private final Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
@@ -30,7 +28,6 @@ public class FileUploadServlet extends HttpServlet {
             "api_key", "591695994741495",
             "api_secret", "fWcdsdRM6uR3o5NdZDGAzVli5bo"));
     UserServiceImpl userService = new UserServiceImpl();
-    Date date = new Date();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -50,7 +47,7 @@ public class FileUploadServlet extends HttpServlet {
 
         Part part = req.getPart("file");
         if (part.getSize() == 0) {
-            resp.sendRedirect("/upload");
+            resp.sendRedirect("/upload-photo-profile");
         } else {
             String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
             InputStream content = part.getInputStream();

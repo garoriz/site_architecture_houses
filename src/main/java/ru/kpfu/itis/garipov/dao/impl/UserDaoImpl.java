@@ -19,7 +19,6 @@ public class UserDaoImpl implements Dao<User> {
 
     private final Connection connection = PostgresConnectionHelper.getConnection();
 
-    @Override
     public User get(String login) {
         String sql = "SELECT * FROM users WHERE login = ?;";
         User user = null;
@@ -32,12 +31,40 @@ public class UserDaoImpl implements Dao<User> {
                 return null;
             }
             while (resultSet.next()) {
+                int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");
                 String status = resultSet.getString("status");
                 String urlPhoto = resultSet.getString("url_photo");
                 String password = resultSet.getString("password");
-                user = new User(name, surname, status, urlPhoto, login, password);
+                user = new User(id, name, surname, status, urlPhoto, login, password);
+            }
+        }  catch (SQLException throwables) {
+            LOGGER.warn("Failed to get user.", throwables);
+        }
+        return user;
+    }
+
+    @Override
+    public User get(int id) {
+        String sql = "SELECT * FROM users WHERE id = ?;";
+        User user = null;
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet == null) {
+                return null;
+            }
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                String surname = resultSet.getString("surname");
+                String status = resultSet.getString("status");
+                String urlPhoto = resultSet.getString("url_photo");
+                String password = resultSet.getString("password");
+                String login = resultSet.getString("login");
+                user = new User(id, name, surname, status, urlPhoto, login, password);
             }
         }  catch (SQLException throwables) {
             LOGGER.warn("Failed to get user.", throwables);

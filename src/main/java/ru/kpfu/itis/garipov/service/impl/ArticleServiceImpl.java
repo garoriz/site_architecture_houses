@@ -16,14 +16,25 @@ public class ArticleServiceImpl implements ArticleService {
     public List<ArticleDTO> getAll() {
         List<Article> articles = dao.getAll();
         List<ArticleDTO> articlesDTO = new ArrayList<>();
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = articles.get(i);
-            articlesDTO.add(new ArticleDTO(article.getUserId(),
+        for (Article article : articles) {
+            articlesDTO.add(new ArticleDTO(article.getId(),
+                    article.getUserId(),
                     article.getDate(),
                     article.getHeading(),
                     article.getContent(),
                     article.getUrlPhoto()));
         }
         return articlesDTO;
+    }
+
+    @Override
+    public ArticleDTO get(int id) {
+        Article article = dao.get(id);
+        return new ArticleDTO(id,
+                article.getUserId(),
+                article.getDate(),
+                article.getHeading(),
+                article.getContent(),
+                article.getUrlPhoto());
     }
 }

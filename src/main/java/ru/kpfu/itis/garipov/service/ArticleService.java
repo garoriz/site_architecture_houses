@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ArticleService {
     List<ArticleDTO> getAll();
+    ArticleDTO get(int id);
 }

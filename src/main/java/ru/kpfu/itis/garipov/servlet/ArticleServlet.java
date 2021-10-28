@@ -1,6 +1,9 @@
 package ru.kpfu.itis.garipov.servlet;
 
 import ru.kpfu.itis.garipov.dto.ArticleDTO;
+import ru.kpfu.itis.garipov.dto.UserDTO;
+import ru.kpfu.itis.garipov.service.impl.ArticleServiceImpl;
+import ru.kpfu.itis.garipov.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,16 +15,16 @@ import java.io.IOException;
 @WebServlet(name = "articleServlet", urlPatterns = "/article")
 public class ArticleServlet extends HttpServlet {
 
-    private static final ArticleDTO ARTICLE = new ArticleDTO(1, "12.02.1900", "Признания молодого архитектора",
-            "Ричардс Эндрьюс с детства мечтал стать архитектором. Мечта его сбылась, и в тридцать лет он уже" +
-                    " работал младшим компаньоном в архитектурном бюро. Но молодому человеку хотелось большего, " +
-                    "хотелось быть самому себе хозяином. И вот пять лет назад он принял смелое решение: снял бывший " +
-                    "каретник, устроил там себе студию и кабинет, распрощался с работодателем, повесил на двери " +
-                    "скромную вывеску и стал ждать клиентов.", "");
+    ArticleServiceImpl articleService = new ArticleServiceImpl();
+    UserServiceImpl userService = new UserServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("article", ARTICLE);
+        String id = req.getParameter("id");
+        ArticleDTO articleDTO = articleService.get(Integer.parseInt(id));
+        UserDTO userDTO = userService.get(articleDTO.getUserId());
+        req.setAttribute("author" ,userDTO);
+        req.setAttribute("article", articleDTO);
         req.getRequestDispatcher("article.ftl").forward(req, resp);
     }
 }
