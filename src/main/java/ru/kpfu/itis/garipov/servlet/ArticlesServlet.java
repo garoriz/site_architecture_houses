@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,6 +23,6 @@ public class ArticlesServlet extends HttpServlet {
         List<ArticleDTO> articlesDTO = articleService.getAll();
         Collections.reverse(articlesDTO);
         req.setAttribute("articles", articlesDTO);
-        req.getRequestDispatcher("articles.jsp").forward(req, resp);
+        req.getRequestDispatcher("articles.ftl").forward(req, resp);
     }
 }

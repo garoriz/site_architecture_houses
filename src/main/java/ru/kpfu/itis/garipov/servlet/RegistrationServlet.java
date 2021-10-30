@@ -3,6 +3,7 @@ package ru.kpfu.itis.garipov.servlet;
 import ru.kpfu.itis.garipov.model.User;
 import ru.kpfu.itis.garipov.service.impl.UserServiceImpl;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -13,8 +14,8 @@ public class RegistrationServlet extends HttpServlet {
     UserServiceImpl userService = new UserServiceImpl();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.sendRedirect("registration.html");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        req.getRequestDispatcher("registration.html").forward(req, resp);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class RegistrationServlet extends HttpServlet {
             session.setAttribute("login", login);
             session.setMaxInactiveInterval(60 * 60);
 
-            resp.sendRedirect("/profile");
+            resp.sendRedirect("/login");
         } else {
             resp.sendRedirect("/registration");
         }

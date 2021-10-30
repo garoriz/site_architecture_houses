@@ -21,13 +21,7 @@ public class SettingsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        HttpSession session = req.getSession();
-        String sessionUser = (String) session.getAttribute("login");
-        if (sessionUser == null) {
-            resp.sendRedirect("/login");
-        } else {
-            req.getRequestDispatcher("settings.ftl").forward(req, resp);
-        }
+        req.getRequestDispatcher("settings.ftl").forward(req, resp);
     }
 
     @Override
