@@ -1,15 +1,15 @@
 package ru.kpfu.itis.garipov.dto;
 
-public class ArticleDTO {
+public class MessageDTO {
     private int id;
     private int userId;
-    private String heading;
+    private int recipientId;
     private String content;
 
-    public ArticleDTO(int id, int userId, String heading, String content) {
+    public MessageDTO(int id, int userId, int recipientId, String content) {
         this.id = id;
         this.userId = userId;
-        this.heading = heading;
+        this.recipientId = recipientId;
         this.content = content;
     }
 
@@ -29,12 +29,12 @@ public class ArticleDTO {
         this.userId = userId;
     }
 
-    public String getHeading() {
-        return heading;
+    public int getRecipientId() {
+        return recipientId;
     }
 
-    public void setHeading(String heading) {
-        this.heading = heading;
+    public void setRecipientId(int recipientId) {
+        this.recipientId = recipientId;
     }
 
     public String getContent() {

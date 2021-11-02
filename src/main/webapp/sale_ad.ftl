@@ -7,9 +7,8 @@
 <#macro content>
     ${saleAd.content}
     <br>
+    ${saleAd.urlPhoto}
     <p style="font-weight:bold; color: red"><small>Цена: ${saleAd.price} руб.</small></p>
     <p style="font-weight:bold"><small>${saleAd.phoneNumber}</small></p>
-    <br>
-    <p><small>${saleAd.date}</small></p>
 </#macro>
 </html>

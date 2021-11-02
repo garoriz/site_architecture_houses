@@ -1,3 +1,4 @@
+<#ftl encoding='UTF-8'>
 <html lang="en">
 <#include "base.ftl">
 <#macro title>${article.heading}</#macro>
@@ -7,7 +8,5 @@
     ${author.name} ${author.surname}
     <br>
     ${article.content}
-    <br>
-    <p><small>${article.date}</small></p>
 </#macro>
 </html>

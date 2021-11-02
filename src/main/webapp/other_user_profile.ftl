@@ -9,5 +9,9 @@
     ${user.urlPhoto}
     <br>
     ${user.status}
+    <br>
+    <form action="/messages?recipient=${user.login}">
+        <button>Чат с пользователем ${user.name}</button>
+    </form>
 </#macro>
 </html>

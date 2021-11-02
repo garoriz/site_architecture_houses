@@ -19,10 +19,8 @@ public class ArticleServiceImpl implements ArticleService {
         for (Article article : articles) {
             articlesDTO.add(new ArticleDTO(article.getId(),
                     article.getUserId(),
-                    article.getDate(),
                     article.getHeading(),
-                    article.getContent(),
-                    article.getUrlPhoto()));
+                    article.getContent()));
         }
         return articlesDTO;
     }
@@ -32,9 +30,28 @@ public class ArticleServiceImpl implements ArticleService {
         Article article = dao.get(id);
         return new ArticleDTO(id,
                 article.getUserId(),
-                article.getDate(),
                 article.getHeading(),
-                article.getContent(),
-                article.getUrlPhoto());
+                article.getContent());
+    }
+
+    @Override
+    public void save(Article article) {
+        dao.save(new Article(
+                article.getUserId(),
+                article.getHeading(),
+                article.getContent()
+        ));
+    }
+
+    public List<ArticleDTO> getAllById(int id) {
+        List<Article> articles = dao.getAllById(id);
+        List<ArticleDTO> articlesDTO = new ArrayList<>();
+        for (Article article : articles) {
+            articlesDTO.add(new ArticleDTO(article.getId(),
+                    article.getUserId(),
+                    article.getHeading(),
+                    article.getContent()));
+        }
+        return articlesDTO;
     }
 }

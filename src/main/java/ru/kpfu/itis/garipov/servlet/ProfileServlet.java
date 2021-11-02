@@ -18,15 +18,27 @@ public class ProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         String sessionUser = (String) session.getAttribute("login");
-        if (sessionUser != null) {
+        String urlParam = req.getParameter("login");
+        if (urlParam == null && sessionUser != null) {
             UserDTO user = userService.get(sessionUser);
             req.setAttribute("user", user);
             req.getRequestDispatcher("profile.ftl").forward(req, resp);
-        } else {
-            UserDTO user = userService.get(req.getParameter("login"));
+        } else if (sessionUser != null && sessionUser.equals(urlParam)) {
+            UserDTO user = userService.get(sessionUser);
+            req.setAttribute("user", user);
+            req.getRequestDispatcher("profile.ftl").forward(req, resp);
+        } else if (sessionUser != null && !sessionUser.equals(urlParam)) {
+            UserDTO user = userService.get(urlParam);
+            req.setAttribute("user", user);
+            req.getRequestDispatcher("other_user_profile.ftl").forward(req, resp);
+        } else if (urlParam != null && userService.get(urlParam) != null) {
+            UserDTO user = userService.get(urlParam);
             req.setAttribute("user", user);
             session.invalidate();
             req.getRequestDispatcher("other_user_profile.ftl").forward(req, resp);
+        } else if (urlParam == null) {
+            session.invalidate();
+            resp.sendRedirect("/login");
         }
     }
 }

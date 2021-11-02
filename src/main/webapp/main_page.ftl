@@ -5,6 +5,6 @@
 <#macro header>Архитектура & дома</#macro>
 
 <#macro content>
-    <a href="/login">Мой профиль</a>
+    <a href="/profile">Мой профиль</a>
 </#macro>
 </html>
