@@ -47,7 +47,10 @@ public class AddSaleAdServlet extends HttpServlet {
         String sessionUser = (String) session.getAttribute("login");
         String heading = req.getParameter("heading");
         String content = req.getParameter("content");
-        int price = Integer.parseInt(req.getParameter("price"));
+        int price = 0;
+        if (!req.getParameter("price").equals("")) {
+            price = Integer.parseInt(req.getParameter("price"));
+        }
         String phoneNumber = req.getParameter("phoneNumber");
         String urlPhoto = "";
 

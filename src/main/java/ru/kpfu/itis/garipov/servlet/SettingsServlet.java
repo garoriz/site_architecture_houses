@@ -41,7 +41,7 @@ public class SettingsServlet extends HttpServlet {
         if (!surname.equals("")) {
             userService.changeSurname(sessionUser, surname);
         }
-        if (!login.equals("")) {
+        if (!login.equals("") & userService.get(login) == null) {
             userService.changeLogin(sessionUser, login);
             session.removeAttribute("login");
             session.setAttribute("login", login);

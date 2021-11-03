@@ -1,11 +1,15 @@
 <#ftl encoding='UTF-8'>
 <html lang="en">
 <#include "base.ftl">
-<#macro title>${article.heading}</#macro>
+<#macro head><title>${article.heading}</title></#macro>
 <#macro header>${article.heading}</#macro>
 
 <#macro content>
-    ${author.name} ${author.surname}
+    <a href="/">Главная страница</a>
+    <br>
+    <a href="/articles">Назад</a>
+    <br>
+    <a href="/profile?login=${author.login}">${author.name} ${author.surname}</a>
     <br>
     ${article.content}
 </#macro>

@@ -1,9 +1,11 @@
 <#ftl encoding='UTF-8'>
 <html lang="en">
 <#include "base.ftl">
-<#macro title>Новое объявление</#macro>
+<#macro head><title>Новое объявление</title></#macro>
 <#macro header>Новое объявление</#macro>
 <#macro content>
+    <a href="/">Главная страница</a>
+    <br>
     <form action="/addSaleAd" method="post" enctype="multipart/form-data">
         Заголовок:
         <p><textarea rows="2" cols="160" name="heading"></textarea></p>

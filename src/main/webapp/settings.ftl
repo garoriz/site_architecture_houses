@@ -1,7 +1,7 @@
 <#ftl encoding='UTF-8'>
 <html lang="en">
 <#include "base.ftl">
-<#macro title>Настройки профиля</#macro>
+<#macro head><title>Настройки</title></#macro>
 <#macro header>Настройки профиля</#macro>
 
 <#macro content>
@@ -21,8 +21,8 @@
         <input type="submit" value="Сохранить">
         <br>
     </form>
-    <form action="/upload-photo-profile">
-        <button>Сменить фото профиля</button>
+    <form action="/uploadPhotoProfile">
+        <button>Сменить фото</button>
     </form>
     <form action="/profile">
         <button>Назад</button>

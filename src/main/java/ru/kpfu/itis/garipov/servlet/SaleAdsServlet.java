@@ -1,5 +1,6 @@
 package ru.kpfu.itis.garipov.servlet;
 
+import com.google.gson.Gson;
 import ru.kpfu.itis.garipov.dto.ArticleDTO;
 import ru.kpfu.itis.garipov.dto.SaleAdDTO;
 import ru.kpfu.itis.garipov.service.impl.SaleAdServiceImpl;

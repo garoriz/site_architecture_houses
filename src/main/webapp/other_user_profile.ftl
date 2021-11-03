@@ -1,17 +1,17 @@
 <#ftl encoding='UTF-8'>
 <html lang="en">
 <#include "base.ftl">
-<#macro title>Профиль</#macro>
+<#macro head><title>Профиль</title></#macro>
 <#macro header>${user.name} ${user.surname}</#macro>
 
 <#macro content>
+    <a href="/">Главная страница</a>
+    <br>
     <p>Login: ${user.login}</p>
     ${user.urlPhoto}
     <br>
     ${user.status}
     <br>
-    <form action="/messages?recipient=${user.login}">
-        <button>Чат с пользователем ${user.name}</button>
-    </form>
+    <p><a href="/messages?recipient=${user.login}">Чат с пользователем ${user.name} ${user.surname}</a></p>
 </#macro>
 </html>

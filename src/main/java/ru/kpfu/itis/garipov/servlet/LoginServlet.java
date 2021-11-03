@@ -27,9 +27,9 @@ public class LoginServlet extends HttpServlet {
         } else if (userService.get(login).getPassword().equals(PasswordHelper.encrypt(password))) {
             HttpSession session = req.getSession();
             session.setAttribute("login", login);
-            session.setMaxInactiveInterval(30);
+            session.setMaxInactiveInterval(60*60);
 
-            if(("rem".equals(req.getParameter("remember")))){
+            if(("rem".equals(req.getParameter(req.getParameter("remember"))))){
                 Cookie userCookie = new Cookie("login", login);
                 userCookie.setMaxAge(7*24*60*60);
                 resp.addCookie(userCookie);

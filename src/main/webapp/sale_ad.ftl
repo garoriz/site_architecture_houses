@@ -1,10 +1,16 @@
 <#ftl encoding='UTF-8'>
 <html lang="en">
 <#include "base.ftl">
-<#macro title>${saleAd.heading}</#macro>
+<#macro head><title>${saleAd.heading}</title></#macro>
 <#macro header>${saleAd.heading}</#macro>
 
 <#macro content>
+    <a href="/">Главная страница</a>
+    <br>
+    <a href="/saleAds">Назад</a>
+    <br>
+    <a href="/profile?login=${author.login}">${author.name} ${author.surname}</a>
+    <br>
     ${saleAd.content}
     <br>
     ${saleAd.urlPhoto}
