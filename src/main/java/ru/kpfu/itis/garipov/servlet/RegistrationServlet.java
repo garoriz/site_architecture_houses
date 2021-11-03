@@ -25,9 +25,9 @@ public class RegistrationServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String confirmedPassword = req.getParameter("confirmedPassword");
-        if ((userService.get(login) != null)) {
+        if (userService.get(login) != null || login.length() >= 8 || name.trim().equals("")) {
             resp.sendRedirect("/registration");
-        } else if (password.equals(confirmedPassword)) {
+        } else if (password.equals(confirmedPassword) && password.length() >= 8) {
             userService.save(createUser(name, surname, login, password));
             HttpSession session = req.getSession();
             session.setAttribute("login", login);
