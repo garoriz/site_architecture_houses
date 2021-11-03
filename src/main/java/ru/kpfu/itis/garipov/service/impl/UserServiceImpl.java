@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
                 user.getSurname(),
                 user.getStatus(),
                 user.getUrlPhoto(),
-                user.getPassword(),
+                user.getLogin(),
                 PasswordHelper.encrypt(user.getPassword())
         ));
     }
